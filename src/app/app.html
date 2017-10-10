@@ -11,9 +11,13 @@
         Quotes
       </button>
       <button ion-item (click)="onLoad(settingsPage)">
-        <ion-icon name="settings"></ion-icon>
+        <ion-icon name="settings" item-left></ion-icon>
         Settings
       </button>
+      <button ion-item (click)="onLoad(testPage)">
+          <ion-icon name="checkbox-outline" item-left></ion-icon>
+          Test
+        </button>
     </ion-list>
   </ion-content>
 </ion-menu>

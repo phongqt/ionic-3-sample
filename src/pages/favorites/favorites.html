@@ -10,9 +10,10 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
+  <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
+    <!-- <ion-list-header>List favorites</ion-list-header> -->
     <ion-item-sliding *ngFor="let quote of quotes">
-      <ion-item color="quoteBackground" (click)="onViewQuote(quote)">
+      <ion-item color="quoteBackground" [ngClass]="{alt: isAltBackground()}" (click)="onViewQuote(quote)">
         <h2>{{quote.person}}</h2>
         <p>{{quote.text}}</p>
       </ion-item>

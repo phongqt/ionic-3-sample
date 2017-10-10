@@ -7,13 +7,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 
-import { FavoritesPage } from './../pages/favorites/favorites';
-import { LibraryPage } from './../pages/library/library';
-import { QuotePage } from './../pages/quote/quote';
-import { QuotesPage } from './../pages/quotes/quotes';
-import { SettingsPage } from './../pages/settings/settings';
+import { FavoritesPage } from '../pages/favorites/favorites';
+import { LibraryPage } from '../pages/library/library';
+import { QuotePage } from '../pages/quote/quote';
+import { QuotesPage } from '../pages/quotes/quotes';
+import { SettingsPage } from '../pages/settings/settings';
+import { TestPage } from '../pages/test/test';
+import { ResetComponent } from '../components/reset.component';
 
 import { QuotesService } from '../services/quotes';
+import { SettingsService } from '../services/settings';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { QuotesService } from '../services/quotes';
     QuotePage,
     QuotesPage,
     SettingsPage,
-    TabsPage
+    TabsPage,
+    TestPage,
+    ResetComponent
   ],
   imports: [
     BrowserModule,
@@ -37,13 +42,14 @@ import { QuotesService } from '../services/quotes';
     QuotePage,
     QuotesPage,
     SettingsPage,
-    TabsPage
+    TabsPage,
+    TestPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    QuotesService
+    QuotesService, SettingsService
   ]
 })
 export class AppModule { }

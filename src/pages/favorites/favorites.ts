@@ -1,9 +1,10 @@
 import { QuotePage } from './../quote/quote';
 import { Quote } from './../../data/quote.interface';
 import { Component } from '@angular/core';
-import { IonicPage, ModalController } from 'ionic-angular';
+import { IonicPage, ModalController, reorderArray } from 'ionic-angular';
 
 import { QuotesService } from '../../services/quotes';
+import { SettingsService } from '../../services/settings';
 
 @IonicPage()
 @Component({
@@ -13,7 +14,9 @@ import { QuotesService } from '../../services/quotes';
 export class FavoritesPage {
   quotes: Quote[];
 
-  constructor(private quotesService: QuotesService, private modalCtrl: ModalController) {
+  constructor(private quotesService: QuotesService,
+    private modalCtrl: ModalController,
+    private settingsService: SettingsService) {
   }
 
   ionViewWillEnter() {
@@ -42,5 +45,17 @@ export class FavoritesPage {
     if (position > -1) {
       this.quotes.splice(position, 1);
     }
+  }
+
+  getBackground() {
+    return this.settingsService.isAltBackground() ? 'altQuoteBackground' : 'quoteBackground';
+  }
+
+  isAltBackground() {
+    return this.settingsService.isAltBackground();
+  }
+
+  reorderItems(indexes) {
+    this.quotes = reorderArray(this.quotes, indexes);
   }
 }

@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { SettingsPage } from '../pages/settings/settings';
 import { TabsPage } from '../pages/tabs/tabs';
+import { TestPage } from '../pages/test/test';
 
 @Component({
   templateUrl: 'app.html'
@@ -12,6 +13,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 export class MyApp {
   tabsPage = TabsPage;
   settingsPage = SettingsPage;
+  testPage = TestPage;
 
   @ViewChild('nav') nav: NavController;
   constructor(private menuCtrl: MenuController, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
